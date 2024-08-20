@@ -7,24 +7,21 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector3 centerOffset = Vector3.zero;
     [SerializeField] private float sizeOffset = 0;
 
-    private Tilemap _levelTilemap;
-
-    public void Prepare(Tilemap tilemap)
+    public void Init(MapComponents mapComponents)
     {
-        _levelTilemap = tilemap;
-        SetCameraCenter();
-        SetCameraSize();
+        SetCameraCenter(mapComponents.MapTilemap);
+        SetCameraSize(mapComponents.MapTilemap);
     }
 
-    private void SetCameraCenter()
+    private void SetCameraCenter(Tilemap tilemap)
     {
-        Vector3 tilemapCenter = _levelTilemap.cellBounds.center;
+        Vector3 tilemapCenter = tilemap.cellBounds.center;
         gameCamera.transform.position = new Vector3(tilemapCenter.x, tilemapCenter.y, gameCamera.transform.position.z) + centerOffset;
     }
 
-    private void SetCameraSize()
+    private void SetCameraSize(Tilemap tilemap)
     {
-        Bounds tilemapBounds = _levelTilemap.localBounds;
+        Bounds tilemapBounds = tilemap.localBounds;
         float aspectRatio = Screen.width / (float)Screen.height;
         float verticalSize = Mathf.Max(tilemapBounds.size.y / 2f, tilemapBounds.size.x / 2f);
         float horizontalSize = Mathf.Max(tilemapBounds.size.x / 2f / aspectRatio, tilemapBounds.size.y / 2f / aspectRatio);

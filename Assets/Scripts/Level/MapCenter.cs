@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MapCenter : MonoBehaviour
 {
-    public Rigidbody2D Rigidbody => _rd ?? GetComponent<Rigidbody2D>();
+    public Rigidbody2D Rigidbody => _rd != null ? _rd : GetComponent<Rigidbody2D>();
 
     private Rigidbody2D _rd;
 
