@@ -4,19 +4,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
-public class LevelSetter : MonoBehaviour
+public class MapSetter : MonoBehaviour
 {
-    [SerializeField] private GameContext gameContext;
-    [SerializeField] private MapCenter mapCenter;
     [SerializeField] private UnityEvent<MapComponents> LevelLoaded;
 
     private MapComponents _currentMap;
 
-    public void LoadLevel(LevelDataSo levelDataSo)
+    public void LoadMap(LevelDataSo levelDataSo)
     {
         ClearCurrentLevel();
         CreateMap(levelDataSo.LevelComponents);
-        CreateMapCenter();
         LevelLoaded.Invoke(_currentMap);
     }
 
@@ -33,13 +30,5 @@ public class LevelSetter : MonoBehaviour
     {
         _currentMap = Instantiate(mapComponents);
         _currentMap.MapTilemap.CompressBounds();
-    }
-
-    private void CreateMapCenter()
-    {
-        mapCenter.transform.DetachChildren();
-        Vector3 tilemapCenter = _currentMap.MapTilemap.cellBounds.center;
-        mapCenter.transform.position = tilemapCenter;
-        _currentMap.transform.SetParent(mapCenter.transform, true);
     }
 }

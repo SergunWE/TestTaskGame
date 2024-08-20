@@ -9,6 +9,14 @@ public class MapCenter : MonoBehaviour
 
     private Rigidbody2D _rd;
 
+    public void Init(MapComponents mapComponents)
+    {
+        transform.DetachChildren();
+        Vector3 tilemapCenter = mapComponents.MapTilemap.cellBounds.center;
+        transform.position = tilemapCenter;
+        mapComponents.transform.SetParent(transform, true);
+    }
+
     private void Awake()
     {
         _rd = GetComponent<Rigidbody2D>();
