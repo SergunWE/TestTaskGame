@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SmoothMover : MonoBehaviour
+public class ObjectMover : MonoBehaviour
 {
     [SerializeField] private Transform movableObject;
     [SerializeField] private Transform startPoint;
