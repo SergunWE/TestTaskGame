@@ -7,49 +7,36 @@ using UnityEngine;
 public class GravityController : MonoBehaviour
 {
     [SerializeField] private float gravityForce = 10;
-    private List<Vector2> _directions;
-    private int _directionCount;
-    private int _currentIndex;
+    private Dictionary<MapDirection, Vector2> _directions;
 
     private void Awake()
     {
-        _directions = new List<Vector2>()
+        _directions = new()
         {
-            new(0,-gravityForce),
-            new(gravityForce,0),
-            new(0,gravityForce),
-            new(-gravityForce,0),
+           {(MapDirection)0, new(0,-gravityForce)},
+           {(MapDirection)1, new(gravityForce,0)},
+           {(MapDirection)2, new(0,gravityForce)},
+           {(MapDirection)3, new(-gravityForce,0)},
         };
-        _directionCount = _directions.Count;
+    }
 
+    public void Reset()
+    {
         SetDefaultGravity();
     }
 
-    public void RotateGravity(bool clockwise)
+    public void RotateGravity(MapDirection gravityDirection, bool clockwise)
     {
-        _currentIndex = clockwise ? _currentIndex + 1 : _currentIndex - 1;
-        SetGravity(_directions[GetCorrectIndex()]);
+        SetGravity(_directions[gravityDirection]);
     }
 
     private void SetDefaultGravity()
     {
-        SetGravity(_directions.FirstOrDefault());
+        SetGravity(_directions.FirstOrDefault().Value);
     }
 
     private void SetGravity(Vector2 vector)
     {
         Physics2D.gravity = vector;
-    }
-
-    private int GetCorrectIndex()
-    {
-        if (_currentIndex >= 0)
-        {
-            return _currentIndex % _directionCount;
-        }
-        else
-        {
-            return _directionCount - Math.Abs(_currentIndex % _directionCount);
-        }
     }
 }

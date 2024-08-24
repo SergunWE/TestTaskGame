@@ -19,10 +19,15 @@ public class ObjectRotater : MonoBehaviour
         _targetRotation = transform.eulerAngles.z;
     }
 
-    public void Rotate(bool clockwise)
+    public void Reset()
+    {
+        
+    }
+
+    public void Rotate(float rotation, bool clockwise)
     {
         StopAllCoroutines();
-        _targetRotation = clockwise ? _targetRotation + 90f : _targetRotation - 90f;
+        _targetRotation = rotation;
         StartCoroutine(RotateCoroutine(clockwise));
     }
 

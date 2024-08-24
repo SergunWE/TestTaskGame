@@ -630,22 +630,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 402972622}
-          m_TargetAssemblyTypeName: GravityController, Assembly-CSharp
-          m_MethodName: RotateGravity
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 519420033}
-          m_TargetAssemblyTypeName: RotateObject, Assembly-CSharp
-          m_MethodName: Rotate
-          m_Mode: 6
+        - m_Target: {fileID: 1092312162}
+          m_TargetAssemblyTypeName: MapRotateController, Assembly-CSharp
+          m_MethodName: RotateClockwise
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -819,6 +807,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1092312161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092312163}
+  - component: {fileID: 1092312162}
+  m_Layer: 0
+  m_Name: MapRotateController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1092312162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092312161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba36860880732a147bae741b55c4a683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapRotated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 402972622}
+        m_TargetAssemblyTypeName: GravityController, Assembly-CSharp
+        m_MethodName: RotateGravity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1514331873}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: RotateCamera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1092312163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092312161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101407692
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,22 +1016,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 402972622}
-          m_TargetAssemblyTypeName: GravityController, Assembly-CSharp
-          m_MethodName: RotateGravity
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 519420033}
-          m_TargetAssemblyTypeName: RotateObject, Assembly-CSharp
-          m_MethodName: Rotate
-          m_Mode: 6
+        - m_Target: {fileID: 1092312162}
+          m_TargetAssemblyTypeName: MapRotateController, Assembly-CSharp
+          m_MethodName: RotateConterclockwise
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1163,6 +1210,9 @@ MonoBehaviour:
   gameCamera: {fileID: 519420031}
   centerOffset: {x: 0, y: 0, z: 0}
   sizeOffset: 0
+  rotationDuration: 0.5
+  offsetRotationSpeedMultiplier: 0.5
+  maxRotationSpeedMultiplier: 3
 --- !u!4 &1514331874
 Transform:
   m_ObjectHideFlags: 0
@@ -1324,7 +1374,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1703570507}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1514331873}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: Test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1703570507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,8 +1457,8 @@ MonoBehaviour:
   LevelLoaded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1514331873}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+      - m_Target: {fileID: 1085455597}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Init
         m_Mode: 0
         m_Arguments:
@@ -1407,8 +1469,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2146443020}
-        m_TargetAssemblyTypeName: MapCenter, Assembly-CSharp
+      - m_Target: {fileID: 1514331873}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
         m_MethodName: Init
         m_Mode: 0
         m_Arguments:
@@ -1487,78 +1549,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2146443019
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2146443022}
-  - component: {fileID: 2146443021}
-  - component: {fileID: 2146443020}
-  m_Layer: 0
-  m_Name: MapCenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2146443020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146443019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22696d607b1e384daa8263cc6fb718f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!50 &2146443021
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146443019}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 2
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 3
---- !u!4 &2146443022
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146443019}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6921876514981950099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1621,10 +1611,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 2146443022}
   - {fileID: 6921876514981950099}
   - {fileID: 1650603428}
   - {fileID: 1923477911}
+  - {fileID: 1092312163}
   - {fileID: 1514331874}
   - {fileID: 1085455598}
   - {fileID: 402972623}
