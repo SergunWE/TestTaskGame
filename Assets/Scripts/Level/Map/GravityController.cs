@@ -20,7 +20,7 @@ public class GravityController : MonoBehaviour
         };
     }
 
-    public void Reset()
+    public void Init()
     {
         SetDefaultGravity();
     }

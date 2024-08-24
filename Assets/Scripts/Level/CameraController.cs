@@ -32,6 +32,9 @@ public class CameraController : MonoBehaviour
 
     public void Init(MapComponents mapComponents)
     {
+        StopAllCoroutines();
+        gameCamera.transform.eulerAngles = new Vector3(0, 0, _directions.FirstOrDefault().Value);
+        _currentSpeedRotatingMultiplier = 0;
         SetCameraCenter(mapComponents.MapTilemap);
         SetCameraSize(mapComponents.MapTilemap);
     }
@@ -47,14 +50,6 @@ public class CameraController : MonoBehaviour
 
         _currentClockwise = clockwise;
         StartCoroutine(RotateCoroutine(gravityDirection, clockwise));
-    }
-
-    public void Test()
-    {
-        StopAllCoroutines();
-        gameCamera.transform.eulerAngles = new Vector3(0, 0, 120);
-        _currentSpeedRotatingMultiplier = 1;
-        StartCoroutine(RotateCoroutine(MapDirection.Left, true));
     }
 
     private void SetCameraCenter(Tilemap tilemap)

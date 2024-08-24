@@ -9,10 +9,10 @@ public class LevelLoader : MonoBehaviour
     private void Start()
     {
         //debug
-        LoadLevel();
+        //LoadLevel();
     }
 
-    private void LoadLevel()
+    public void LoadLevel()
     {
         currentLevelSet?.Invoke(gameContext.CurrentLevel);
     }
