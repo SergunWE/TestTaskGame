@@ -77,6 +77,7 @@ public class CameraController : MonoBehaviour
         _rotatingRunning = true;
         var currentAngle = gameCamera.transform.eulerAngles.z % 360;
         var targetAngle = _directions[direction];
+        //принудительный поворот по часовой/против, если меньшая дуга противоположная
         var angleDiff = currentAngle - targetAngle;
         switch (clockwise)
         {
