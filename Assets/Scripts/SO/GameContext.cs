@@ -7,10 +7,13 @@ using UnityEngine;
 public class GameContext : ScriptableObject
 {
     public event Action CurrencyChanged;
+    public event Action MusicChanged;
 
     [field: SerializeField] public LevelDataSo CurrentLevel { get; set; }
     [SerializeField] private int currentCurrency;
     [field: SerializeField] public List<LevelDataSo> Levels { get; private set; }
+
+    [SerializeField, Space] private bool _musicOn = true;
 
     public int CurrentCurrency
     {
@@ -20,5 +23,21 @@ public class GameContext : ScriptableObject
             currentCurrency = value;
             CurrencyChanged?.Invoke();
         }
+    }
+
+    public bool Music
+    {
+        get => _musicOn;
+        set
+        {
+            _musicOn = value;
+            MusicChanged?.Invoke();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        CurrencyChanged = null;
+        MusicChanged = null;
     }
 }

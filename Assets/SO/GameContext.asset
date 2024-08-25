@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a961652a2582fa48a02dad40ebf39c7, type: 2}
   - {fileID: 11400000, guid: 0f1717e1cfc171a488be7cbe490fd397, type: 2}
   - {fileID: 11400000, guid: 157c4cec1d4aa1c458c86bc6205e6390, type: 2}
+  _musicOn: 1
