@@ -12,4 +12,12 @@ public class LevelDataSo : LevelDataBaseSo
     [field: SerializeField] public int CollectedCurrency { get; set; }
 
     public float BestTimeSeconds => TimeSeconds - BestRemainingTimeSeconds;
+
+    [ContextMenu("Clear")]
+    private void Clear()
+    {
+        IsCompleted = false;
+        CollectedCurrency = 0;
+        BestRemainingTimeSeconds = 0;
+    }
 }
