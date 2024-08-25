@@ -4,6 +4,11 @@ public class PlayerController : GameController
 {
     [SerializeField] private Rigidbody2D _playerRb;
 
+    private void Awake()
+    {
+        DisablePlayer();
+    }
+
     public override void Init(MapComponents mapComponents)
     {
         _playerRb.gameObject.SetActive(false);

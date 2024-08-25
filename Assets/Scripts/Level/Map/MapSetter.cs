@@ -17,6 +17,11 @@ public class MapSetter : MonoBehaviour
         LevelLoaded.Invoke(_currentMap);
     }
 
+    public void ClearLevel()
+    {
+        ClearCurrentLevel();
+    }
+
     private void ClearCurrentLevel()
     {
         if(_currentMap != null)
