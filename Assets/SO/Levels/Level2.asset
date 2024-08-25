@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   IsCompleted: 0
-  <LevelComponents>k__BackingField: {fileID: 0}
+  <LevelComponents>k__BackingField: {fileID: 3071982154555308599, guid: 4b4d88c8a89c8c643a44cb7cd8a74946, type: 3}
   <TimeSeconds>k__BackingField: 31
-  <BestTimeSeconds>k__BackingField: 0
+  <BestRemainingTimeSeconds>k__BackingField: 0
   <MaxCurrency>k__BackingField: 0
   <CollectedCurrency>k__BackingField: 0

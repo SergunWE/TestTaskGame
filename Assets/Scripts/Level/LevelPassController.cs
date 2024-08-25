@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class LevelPassController : GameController
 {
+    [SerializeField] private GameContext gameContext;
     [SerializeField] private UnityEvent levelPassed;
     [SerializeField] private UnityEvent levelFailed;
 
@@ -34,6 +35,7 @@ public class LevelPassController : GameController
     {
         if(_gameOver) return;
         Debug.Log("LevelPassed");
+        gameContext.CurrentLevel.IsCompleted = true;
         _gameOver = true;
         levelPassed?.Invoke();
     }

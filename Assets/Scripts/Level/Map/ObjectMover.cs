@@ -8,6 +8,7 @@ public class ObjectMover : MonoBehaviour
     [SerializeField] private Transform endPoint;
     [SerializeField] private float travelTime = 1.0f;
     [SerializeField] private float delayBetweenMoves = 1.0f;
+    [SerializeField] private float startDelay;
     [SerializeField] private AnimationCurve movementCurve;
     [SerializeField] private bool loop;
     [SerializeField] private bool oneWayMove;
@@ -26,6 +27,7 @@ public class ObjectMover : MonoBehaviour
 
     private IEnumerator MoveObject()
     {
+        yield return new WaitForSeconds(startDelay);
         do
         {
             yield return StartCoroutine(MoveToPosition(startPoint.position, endPoint.position));
@@ -37,6 +39,7 @@ public class ObjectMover : MonoBehaviour
 
     private IEnumerator MoveObjectFromEnd()
     {
+        yield return new WaitForSeconds(startDelay);
         yield return StartCoroutine(MoveToPosition(startPoint.position, endPoint.position));
         yield return new WaitForSeconds(delayBetweenMoves);
     }
