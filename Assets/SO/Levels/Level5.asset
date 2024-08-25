@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3fe0edd79e715c48915ad2853db487e, type: 3}
   m_Name: Level5
   m_EditorClassIdentifier: 
-  IsCompleted: 0
-  <LevelComponents>k__BackingField: {fileID: 0}
+  IsCompleted: 1
+  <LevelComponents>k__BackingField: {fileID: 3071982154555308599, guid: b4afb436bd312de44a6cf03b00494f93, type: 3}
   <TimeSeconds>k__BackingField: 31
-  <BestTimeSeconds>k__BackingField: 0
-  <MaxCurrency>k__BackingField: 0
+  <BestRemainingTimeSeconds>k__BackingField: 12.028409
+  <MaxCurrency>k__BackingField: 5
   <CollectedCurrency>k__BackingField: 0

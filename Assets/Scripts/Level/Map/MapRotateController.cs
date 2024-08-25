@@ -15,6 +15,11 @@ public class MapRotateController : MonoBehaviour
         _enumCount = Enum.GetNames(typeof(MapDirection)).Length;
     }
 
+    public void Reset()
+    {
+        _currentDirection = 0;
+    }
+
     public void RotateClockwise()
     {
         _currentDirection++;
