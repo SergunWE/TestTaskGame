@@ -5,7 +5,7 @@ using System.Linq;
 using System.Collections;
 using System;
 
-public class CameraController : MonoBehaviour
+public class CameraController : GameController
 {
     [SerializeField] private Camera gameCamera;
     [SerializeField] private Vector3 centerOffset = Vector3.zero;
@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         };
     }
 
-    public void Init(MapComponents mapComponents)
+    public override void Init(MapComponents mapComponents)
     {
         StopAllCoroutines();
         gameCamera.transform.eulerAngles = new Vector3(0, 0, _directions.FirstOrDefault().Value);

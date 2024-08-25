@@ -3,16 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
-/// Управляет камушками и бонусом времени
+/// Управляет монетками и бонусом времени
 /// </summary>
-public class ItemController : MonoBehaviour
+public class ItemController : GameController
 {
     [SerializeField] private GameContext gameContext;
+    [SerializeField] private UnityEvent<TimeBonus> timeBonusCollected;
 
-    public void Init(MapComponents mapComponents)
+    private int _collectedCurrency;
+
+    public override void Init(MapComponents mapComponents)
     {
+        _collectedCurrency = 0;
         foreach (var item in mapComponents.Items)
         {
             item.ItemActivated += OnItemActivated;
@@ -27,14 +32,20 @@ public class ItemController : MonoBehaviour
                 Debug.Log("Coin");
                 OnCoinActivated(coin);
                 break;
-            case TimeBonus:
+            case TimeBonus timeBonus:
                 Debug.Log("TimeBonus");
+                OnTimeBonusActiveted(timeBonus);
                 break;
         }
     }
 
     private void OnCoinActivated(Coin coin)
     {
-        gameContext.CurrentCurrency += coin.Award;
+        _collectedCurrency += coin.Award;
+    }
+
+    private void OnTimeBonusActiveted(TimeBonus timeBonus)
+    {
+        timeBonusCollected?.Invoke(timeBonus);
     }
 }

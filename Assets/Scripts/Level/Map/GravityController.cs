@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GravityController : MonoBehaviour
+public class GravityController : GameController
 {
     [SerializeField] private float gravityForce = 10;
     private Dictionary<MapDirection, Vector2> _directions;
@@ -20,7 +20,7 @@ public class GravityController : MonoBehaviour
         };
     }
 
-    public void Init()
+    public override void Init(MapComponents mapComponents)
     {
         SetDefaultGravity();
     }

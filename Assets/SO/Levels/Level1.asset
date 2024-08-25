@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsCompleted: 0
   <LevelComponents>k__BackingField: {fileID: 3071982154555308599, guid: f75761c0b6ff91a4a88b58b7f8262d84, type: 3}
-  <TimeSeconds>k__BackingField: 30
+  <TimeSeconds>k__BackingField: 31
   <BestTimeSeconds>k__BackingField: 0
+  <MaxCurrency>k__BackingField: 0
+  <CollectedCurrency>k__BackingField: 0
