@@ -14,14 +14,21 @@ public class ItemController : GameController
     [SerializeField] private UnityEvent<TimeBonus> timeBonusCollected;
 
     private int _collectedCurrency;
+    private LevelDataSo _levelData;
 
     public override void Init(MapComponents mapComponents)
     {
         _collectedCurrency = 0;
+        _levelData = gameContext.CurrentLevel;
         foreach (var item in mapComponents.Items)
         {
             item.ItemActivated += OnItemActivated;
         }
+    }
+
+    public void OnLevelPassed()
+    {
+        GiveAward();
     }
 
     private void OnItemActivated(Item item)
@@ -47,5 +54,13 @@ public class ItemController : GameController
     private void OnTimeBonusActiveted(TimeBonus timeBonus)
     {
         timeBonusCollected?.Invoke(timeBonus);
+    }
+
+    private void GiveAward()
+    {
+        var availableReward = Math.Clamp(_levelData.MaxCurrency - _levelData.CollectedCurrency, 0, _levelData.MaxCurrency);
+        var currentCurrency = Math.Min(availableReward, _collectedCurrency);
+        gameContext.CurrentCurrency += currentCurrency;
+        _levelData.CollectedCurrency += currentCurrency;
     }
 }

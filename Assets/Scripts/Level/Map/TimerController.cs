@@ -33,6 +33,13 @@ public class TimerController : GameController
         _levelTime += TimeSpan.FromSeconds(seconds);
     }
 
+    public void OnLevelPassed()
+    {
+        _stopwatch.Stop();
+        var remainingTimeSeconds = gameContext.CurrentLevel.TimeSeconds - _stopwatch.Elapsed.TotalSeconds;
+        gameContext.CurrentLevel.BestRemainingTimeSeconds = Mathf.Max((float)remainingTimeSeconds, gameContext.CurrentLevel.BestRemainingTimeSeconds);
+    }
+
     private IEnumerator TimerCoroutine()
     {
         TimeSpan timeSpan = _levelTime - _stopwatch.Elapsed;

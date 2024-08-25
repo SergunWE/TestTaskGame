@@ -543,7 +543,19 @@ MonoBehaviour:
   timerText: {fileID: 8717393953732902867}
   timeUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1322906131}
+        m_TargetAssemblyTypeName: LevelPassController, Assembly-CSharp
+        m_MethodName: OnTimeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &524607087
 Transform:
   m_ObjectHideFlags: 0
@@ -1634,10 +1646,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPassed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 524607086}
+        m_TargetAssemblyTypeName: TimerController, Assembly-CSharp
+        m_MethodName: OnLevelPassed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 869006206}
+        m_TargetAssemblyTypeName: ItemController, Assembly-CSharp
+        m_MethodName: OnLevelPassed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   levelFailed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1322906132
 Transform:
   m_ObjectHideFlags: 0
@@ -2352,6 +2400,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 524607086}
         m_TargetAssemblyTypeName: TimerController, Assembly-CSharp
+        m_MethodName: Init
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1322906131}
+        m_TargetAssemblyTypeName: LevelPassController, Assembly-CSharp
         m_MethodName: Init
         m_Mode: 0
         m_Arguments:

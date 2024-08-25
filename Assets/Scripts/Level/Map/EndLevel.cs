@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EndLevel : MonoBehaviour
 {
-    public event Action LevelEnded;
+    public event Action LevelPassed;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,7 +13,12 @@ public class EndLevel : MonoBehaviour
         //можно было сделать поиск по компоненту игрока (если такой имеется)
         if (other.CompareTag(Constans.PlayerTag))
         {
-            LevelEnded?.Invoke();
+            LevelPassed?.Invoke();
         }
+    }
+
+    private void OnDestroy()
+    {
+        LevelPassed = null;
     }
 }
