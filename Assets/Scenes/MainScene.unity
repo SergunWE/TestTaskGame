@@ -225,89 +225,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &108177946
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 108177948}
-  - component: {fileID: 108177947}
-  m_Layer: 0
-  m_Name: GameoverController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &108177947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108177946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902f8f89a9acaa9489c1cc29618fb260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameoverView: {fileID: 1697184020}
-  retryButton: {fileID: 502696356}
-  nextButton: {fileID: 695674820}
-  levelsButton: {fileID: 276599150}
-  yourTimeText: {fileID: 911467359}
-  bestTimeText: {fileID: 1968344740}
-  retryRequested:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1650603427}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadCurrentLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  nextRequested:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1650603427}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadNextLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  levelsRequested:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &108177948
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108177946}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &121937737
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +425,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &294449338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2558039211133218091, guid: 2b03ae25faa920d43b0ba20ff93dab93, type: 3}
+  m_PrefabInstance: {fileID: 1650722831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &402972621
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +672,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 502696354}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1650603427}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadCurrentLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +853,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameContext: {fileID: 11400000, guid: 43d2a3e1e73d2e946803264a9a478aa7, type: 2}
   timerText: {fileID: 8717393953732902867}
+  timeStopedSeconds:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1697184024}
+        m_TargetAssemblyTypeName: GameoverView, Assembly-CSharp
+        m_MethodName: OnTimerStoped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   timeUp:
     m_PersistentCalls:
       m_Calls:
@@ -1091,6 +1046,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1697184020}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   menus:
   - {fileID: 1646603690}
@@ -1273,7 +1240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 695674818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1650603427}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &869006205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,8 +2473,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 108177947}
-        m_TargetAssemblyTypeName: GameoverController, Assembly-CSharp
+      - m_Target: {fileID: 1697184024}
+        m_TargetAssemblyTypeName: GameoverView, Assembly-CSharp
         m_MethodName: ShowView
         m_Mode: 6
         m_Arguments:
@@ -2509,8 +2488,8 @@ MonoBehaviour:
   levelFailed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 108177947}
-        m_TargetAssemblyTypeName: GameoverController, Assembly-CSharp
+      - m_Target: {fileID: 1697184024}
+        m_TargetAssemblyTypeName: GameoverView, Assembly-CSharp
         m_MethodName: ShowView
         m_Mode: 6
         m_Arguments:
@@ -3369,6 +3348,7 @@ GameObject:
   - component: {fileID: 1697184021}
   - component: {fileID: 1697184023}
   - component: {fileID: 1697184022}
+  - component: {fileID: 1697184024}
   m_Layer: 5
   m_Name: GameoverUI
   m_TagString: Untagged
@@ -3435,6 +3415,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697184020}
   m_CullTransparentMesh: 1
+--- !u!114 &1697184024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697184020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902f8f89a9acaa9489c1cc29618fb260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameContext: {fileID: 11400000, guid: 43d2a3e1e73d2e946803264a9a478aa7, type: 2}
+  nextButton: {fileID: 695674820}
+  yourTimeText: {fileID: 911467359}
+  bestTimeText: {fileID: 294449338}
 --- !u!1 &1703570504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3903,18 +3899,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1322906131}
         m_TargetAssemblyTypeName: LevelPassController, Assembly-CSharp
-        m_MethodName: Init
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 108177947}
-        m_TargetAssemblyTypeName: GameoverController, Assembly-CSharp
         m_MethodName: Init
         m_Mode: 0
         m_Arguments:
@@ -5143,7 +5127,6 @@ SceneRoots:
   - {fileID: 402972623}
   - {fileID: 869006207}
   - {fileID: 524607087}
-  - {fileID: 108177948}
   - {fileID: 96293146}
   - {fileID: 921310524}
   - {fileID: 1119730441}

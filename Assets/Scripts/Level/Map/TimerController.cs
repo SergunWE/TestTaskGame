@@ -10,6 +10,7 @@ public class TimerController : GameController
 {
     [SerializeField] private GameContext gameContext;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private UnityEvent<float> timeStopedSeconds;
     [SerializeField] private UnityEvent timeUp;
 
     private Stopwatch _stopwatch;
@@ -38,6 +39,7 @@ public class TimerController : GameController
         _stopwatch.Stop();
         var remainingTimeSeconds = gameContext.CurrentLevel.TimeSeconds - _stopwatch.Elapsed.TotalSeconds;
         gameContext.CurrentLevel.BestRemainingTimeSeconds = Mathf.Max((float)remainingTimeSeconds, gameContext.CurrentLevel.BestRemainingTimeSeconds);
+        timeStopedSeconds?.Invoke((float)remainingTimeSeconds);
     }
 
     private IEnumerator TimerCoroutine()
@@ -45,7 +47,7 @@ public class TimerController : GameController
         TimeSpan timeSpan = _levelTime - _stopwatch.Elapsed;
         while (timeSpan > TimeSpan.Zero)
         {
-            timerText.text = timeSpan.ToString("mm\\:ss");
+            timerText.text = timeSpan.ToString(Constans.TimeFormat);
             yield return null;
             timeSpan = _levelTime - _stopwatch.Elapsed;
         }
