@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 9201707678586718479}
   - component: {fileID: 1017514699061682660}
   m_Layer: 0
-  m_Name: JewelryItem1
+  m_Name: CoinItem1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

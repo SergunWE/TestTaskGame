@@ -12,19 +12,19 @@ public class AnimationController : MonoBehaviour
 
     public void ShowMenuScreen()
     {
-        mainMenuCanvas.enabled = true;
-        gameCanvas.enabled = false;
+        mainMenuCanvas.gameObject.SetActive(true);
+        gameCanvas.gameObject.SetActive(false);
     }
 
     public void ShowLoadingScreen()
     {
-        mainMenuCanvas.enabled = false;
-        gameCanvas.enabled = false;
+        mainMenuCanvas.gameObject.SetActive(false);
+        gameCanvas.gameObject.SetActive(false);
     }
 
     public void ShowGameScreen()
     {
-        mainMenuCanvas.enabled = false;
-        gameCanvas.enabled = true;
+        mainMenuCanvas.gameObject.SetActive(false);
+        gameCanvas.gameObject.SetActive(true);
     }
 }

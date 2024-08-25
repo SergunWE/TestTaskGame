@@ -7,7 +7,7 @@ public class MapComponents : MonoBehaviour
     [field: SerializeField] public Tilemap MapTilemap { get; private set; }
     [field: SerializeField] public Transform StartPlayerPosition { get; private set; }
     [field: SerializeField] public EndLevel EndLevel { get; private set; }
-    [field: SerializeField] public List<Jewelry> Justifies{ get; private set; }
+    [field: SerializeField] public List<Item> Items{ get; private set; }
 
     private void OnValidate() {
         if(transform != null)

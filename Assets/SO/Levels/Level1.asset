@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   IsCompleted: 0
-  <TimeSeconds>k__BackingField: 30
   <LevelComponents>k__BackingField: {fileID: 3071982154555308599, guid: f75761c0b6ff91a4a88b58b7f8262d84, type: 3}
-  BestTimeSeconds: 0
+  <TimeSeconds>k__BackingField: 30
+  <BestTimeSeconds>k__BackingField: 0

@@ -69,8 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MapTilemap>k__BackingField: {fileID: 9048829344769470698}
   <StartPlayerPosition>k__BackingField: {fileID: 5567799913549585277}
-  <EndLevel>k__BackingField: {fileID: 0}
-  <Justifies>k__BackingField:
+  <EndLevel>k__BackingField: {fileID: 7975819902932862965}
+  <Items>k__BackingField:
   - {fileID: 4935660996113553002}
   - {fileID: 3385199507414211505}
   - {fileID: 1972756926928330335}
@@ -1268,7 +1268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7836379457345141030, guid: 351d0a9c008308c42ae5ed18b23376e4, type: 3}
       propertyPath: m_Name
-      value: JewelryItem1 (3)
+      value: CoinItem1 (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1341,7 +1341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7836379457345141030, guid: 351d0a9c008308c42ae5ed18b23376e4, type: 3}
       propertyPath: m_Name
-      value: JewelryItem1
+      value: CoinItem1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1476,7 +1476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7836379457345141030, guid: 351d0a9c008308c42ae5ed18b23376e4, type: 3}
       propertyPath: m_Name
-      value: JewelryItem1 (1)
+      value: CoinItem1 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1651,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7836379457345141030, guid: 351d0a9c008308c42ae5ed18b23376e4, type: 3}
       propertyPath: m_Name
-      value: JewelryItem1 (2)
+      value: CoinItem1 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1724,7 +1724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7836379457345141030, guid: 351d0a9c008308c42ae5ed18b23376e4, type: 3}
       propertyPath: m_Name
-      value: JewelryItem1 (4)
+      value: CoinItem1 (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1809,3 +1809,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4925141751356727593, guid: afe09d16998cf9741a24630b569aaec4, type: 3}
   m_PrefabInstance: {fileID: 7906902222158560487}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7975819902932862965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 222145724870834962, guid: afe09d16998cf9741a24630b569aaec4, type: 3}
+  m_PrefabInstance: {fileID: 7906902222158560487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13664db5a592fe14f92ade2f3d8f9987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
