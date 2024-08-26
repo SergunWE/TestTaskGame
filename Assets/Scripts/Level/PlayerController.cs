@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerController : GameController
 {
+    [SerializeField] private GameContext gameContext;
     [SerializeField] private Rigidbody2D _playerRb;
+    [SerializeField] private SpriteRenderer playerRenderer;
 
     private void Awake()
     {
@@ -14,6 +16,7 @@ public class PlayerController : GameController
         _playerRb.gameObject.SetActive(false);
         _playerRb.velocity = Vector2.zero;
         _playerRb.transform.position = mapComponents.StartPlayerPosition.position;
+        playerRenderer.sprite = gameContext.CurrentSkin.PlayerSprite;
         _playerRb.gameObject.SetActive(true);
     }
 

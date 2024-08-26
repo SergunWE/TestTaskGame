@@ -15,6 +15,9 @@ public class GameContext : ScriptableObject
 
     [SerializeField, Space] private bool _musicOn = true;
 
+    [field: SerializeField, Space] public PlayerSkinSo CurrentSkin{ get; set; }
+    [field: SerializeField] public List<PlayerSkinSo> Skins { get; private set; }
+
     public int CurrentCurrency
     {
         get => currentCurrency;

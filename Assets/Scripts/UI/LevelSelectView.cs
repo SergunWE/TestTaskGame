@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LevelSelectController : MonoBehaviour
+public class LevelSelectView : MonoBehaviour
 {
     [SerializeField] private GameContext gameContext;
     [SerializeField] private Transform levelButtonsRoot;

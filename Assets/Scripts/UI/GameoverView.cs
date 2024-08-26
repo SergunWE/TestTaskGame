@@ -20,9 +20,9 @@ public class GameoverView : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void OnTimerStoped(float seconds)
+    public void OnTimerStoped(TimeSpan time)
     {
-        yourTimeText.text = TimeSpan.FromSeconds(seconds).ToString(Constans.TimeFormat);
+        yourTimeText.text = time.ToString(Constans.TimeFormat);
     }
 
 

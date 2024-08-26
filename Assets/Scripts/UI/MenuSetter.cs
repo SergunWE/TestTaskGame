@@ -47,6 +47,12 @@ public class MenuSetter : MonoBehaviour
         settingsMenuRequested?.Invoke();
     }
 
+    public void ShowShopMenu()
+    {
+        ClearMenus();
+        shopMenuRequested?.Invoke();
+    }
+
     private void ClearCanvas()
     {
         foreach (var canvas in canvas)
