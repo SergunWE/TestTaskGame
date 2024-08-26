@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,17 +32,17 @@ public class LevelStateController : GameController
     private void OnLevelFailed()
     {
         if (_gameOver) return;
-        Debug.Log("OnLevelFailed");
         _gameOver = true;
+        //Debug.Log("OnLevelFailed");
         levelFailed?.Invoke();
     }
 
     private void OnLevelPassed()
     {
         if(_gameOver) return;
-        Debug.Log("LevelPassed");
-        gameContext.CurrentLevel.IsCompleted = true;
         _gameOver = true;
+        //Debug.Log("LevelPassed");
+        gameContext.CurrentLevel.IsCompleted = true;
         levelPassed?.Invoke();
     }
 }

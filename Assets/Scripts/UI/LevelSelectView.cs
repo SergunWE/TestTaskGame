@@ -18,11 +18,13 @@ public class LevelSelectView : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        bool prevLevelCompleted = true;
         for (int i = 0; i < gameContext.Levels.Count; i++)
         {
             var levelButton = Instantiate(levelButtonPrefab, levelButtonsRoot);
-            levelButton.Init(i + 1, i == 0 || gameContext.Levels[i].IsCompleted);
+            levelButton.Init(i + 1, prevLevelCompleted || gameContext.Levels[i].IsCompleted);
             levelButton.LevelSelected += OnLevelSelected;
+            prevLevelCompleted = gameContext.Levels[i].IsCompleted;
         }
     }
 

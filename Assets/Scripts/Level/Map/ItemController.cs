@@ -36,11 +36,11 @@ public class ItemController : GameController
         switch (item)
         {
             case Coin coin:
-                Debug.Log("Coin");
+                //Debug.Log("Coin");
                 OnCoinActivated(coin);
                 break;
             case TimeBonus timeBonus:
-                Debug.Log("TimeBonus");
+                //Debug.Log("TimeBonus");
                 OnTimeBonusActiveted(timeBonus);
                 break;
         }

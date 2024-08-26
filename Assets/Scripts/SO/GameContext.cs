@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameContext", menuName = "SOData/GameContext")]
+[Serializable]
 public class GameContext : ScriptableObject
 {
     public event Action CurrencyChanged;
@@ -16,8 +17,10 @@ public class GameContext : ScriptableObject
 
     [SerializeField, Space] private bool musicOn = true;
 
-    [field: SerializeField, Space] public PlayerSkinSo CurrentSkin{ get; set; }
+    [field: SerializeField, Space] public PlayerSkinSo CurrentSkin { get; set; }
     [field: SerializeField] public List<PlayerSkinSo> Skins { get; private set; }
+
+    private const string SaveKey = "GameContext";
 
     public int CurrentCurrency
     {
@@ -36,6 +39,16 @@ public class GameContext : ScriptableObject
         {
             musicOn = value;
             MusicChanged?.Invoke();
+        }
+    }
+
+    public void SetNextLevel()
+    {
+        CurrentLevel.IsCompleted = true;
+        int currentLevelIndex = Levels.IndexOf(CurrentLevel);
+        if (currentLevelIndex >= 0)
+        {
+            CurrentLevel = Levels[Math.Clamp(currentLevelIndex + 1, 0, Levels.Count - 1)];
         }
     }
 
@@ -61,4 +74,60 @@ public class GameContext : ScriptableObject
         CurrencyChanged = null;
         MusicChanged = null;
     }
+
+    #region Storage
+    public void Save()
+    {
+        var saveData = new GameContextSaveData
+        {
+            CurrentCurrency = currentCurrency,
+            MusicOn = musicOn,
+            CurrentLevelIndex = Levels.IndexOf(CurrentLevel),
+            CurrentSkinIndex = Skins.IndexOf(CurrentSkin),
+            Levels = Levels.Select(level => new LevelDataSaveData
+            {
+                IsCompleted = level.IsCompleted,
+                CollectedCurrency = level.CollectedCurrency,
+                BestRemainingTimeSeconds = level.BestRemainingTimeSeconds
+            }).ToList(),
+            Skins = Skins.Select(skin => new PlayerSkinSaveData
+            {
+                Purchased = skin.Purchased
+            }).ToList()
+        };
+
+        string json = JsonUtility.ToJson(saveData);
+        PlayerPrefs.SetString(SaveKey, json);
+        PlayerPrefs.Save();
+    }
+
+    public void Load()
+    {
+        if (!PlayerPrefs.HasKey(SaveKey))
+        {
+            Clear();
+            return;
+        }
+
+        string json = PlayerPrefs.GetString(SaveKey);
+        var saveData = JsonUtility.FromJson<GameContextSaveData>(json);
+
+        currentCurrency = saveData.CurrentCurrency;
+        musicOn = saveData.MusicOn;
+        CurrentLevel = Levels.ElementAtOrDefault(saveData.CurrentLevelIndex);
+        CurrentSkin = Skins.ElementAtOrDefault(saveData.CurrentSkinIndex);
+
+        for (int i = 0; i < saveData.Levels.Count; i++)
+        {
+            Levels[i].IsCompleted = saveData.Levels[i].IsCompleted;
+            Levels[i].CollectedCurrency = saveData.Levels[i].CollectedCurrency;
+            Levels[i].BestRemainingTimeSeconds = saveData.Levels[i].BestRemainingTimeSeconds;
+        }
+
+        for (int i = 0; i < saveData.Skins.Count; i++)
+        {
+            Skins[i].Purchased = saveData.Skins[i].Purchased;
+        }
+    }
+    #endregion
 }
