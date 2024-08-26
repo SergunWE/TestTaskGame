@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameContext", menuName = "SOData/GameContext")]
@@ -13,7 +14,7 @@ public class GameContext : ScriptableObject
     [SerializeField] private int currentCurrency;
     [field: SerializeField] public List<LevelDataSo> Levels { get; private set; }
 
-    [SerializeField, Space] private bool _musicOn = true;
+    [SerializeField, Space] private bool musicOn = true;
 
     [field: SerializeField, Space] public PlayerSkinSo CurrentSkin{ get; set; }
     [field: SerializeField] public List<PlayerSkinSo> Skins { get; private set; }
@@ -30,11 +31,28 @@ public class GameContext : ScriptableObject
 
     public bool Music
     {
-        get => _musicOn;
+        get => musicOn;
         set
         {
-            _musicOn = value;
+            musicOn = value;
             MusicChanged?.Invoke();
+        }
+    }
+
+    [ContextMenu("Clear")]
+    private void Clear()
+    {
+        CurrentLevel = Levels.FirstOrDefault();
+        currentCurrency = 0;
+        foreach (var level in Levels)
+        {
+            level.Clear();
+        }
+        musicOn = true;
+        CurrentSkin = Skins.FirstOrDefault();
+        foreach (var skin in Skins)
+        {
+            skin.Clear();
         }
     }
 

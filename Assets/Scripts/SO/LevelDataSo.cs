@@ -14,7 +14,7 @@ public class LevelDataSo : LevelDataBaseSo
     public float BestTimeSeconds => TimeSeconds - BestRemainingTimeSeconds;
 
     [ContextMenu("Clear")]
-    private void Clear()
+    public void Clear()
     {
         IsCompleted = false;
         CollectedCurrency = 0;

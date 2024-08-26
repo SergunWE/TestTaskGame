@@ -3979,7 +3979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCamera: {fileID: 519420031}
-  centerOffset: {x: 0, y: -0.5, z: 0}
   sizeOffset: 0
   rotationDuration: 0.5
   offsetRotationSpeedMultiplier: 0.5

@@ -8,7 +8,6 @@ using System;
 public class CameraController : GameController
 {
     [SerializeField] private Camera gameCamera;
-    [SerializeField] private Vector3 centerOffset = Vector3.zero;
     [SerializeField] private float sizeOffset = 0;
     [SerializeField, Space] private float rotationDuration = 1f;
     [SerializeField] private float offsetRotationSpeedMultiplier = 0.5f;
@@ -55,7 +54,7 @@ public class CameraController : GameController
     private void SetCameraCenter(Tilemap tilemap)
     {
         Vector3 tilemapCenter = tilemap.cellBounds.center;
-        gameCamera.transform.position = new Vector3(tilemapCenter.x, tilemapCenter.y, gameCamera.transform.position.z) + centerOffset;
+        gameCamera.transform.position = new Vector3(tilemapCenter.x, tilemapCenter.y, gameCamera.transform.position.z);
     }
 
     private void SetCameraSize(Tilemap tilemap)

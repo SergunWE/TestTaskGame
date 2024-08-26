@@ -16,5 +16,5 @@ MonoBehaviour:
   <LevelComponents>k__BackingField: {fileID: 3071982154555308599, guid: 27a25fb54ed57ce44b9a531f1075e495, type: 3}
   <TimeSeconds>k__BackingField: 31
   <BestRemainingTimeSeconds>k__BackingField: 0
-  <MaxCurrency>k__BackingField: 5
+  <MaxCurrency>k__BackingField: 20
   <CollectedCurrency>k__BackingField: 0
