@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameContext
   m_EditorClassIdentifier: 
   <CurrentLevel>k__BackingField: {fileID: 11400000, guid: af036817032683744a7789560e8c4b6e, type: 2}
-  currentCurrency: 500
+  currentCurrency: 0
   <Levels>k__BackingField:
   - {fileID: 11400000, guid: af036817032683744a7789560e8c4b6e, type: 2}
   - {fileID: 11400000, guid: 85767ed23d116384d8e0079d4ca4dbb8, type: 2}
