@@ -1,7 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(fileName = "Skin", menuName = "SOData/PlayerSkin")]
 public class PlayerSkinSo : ScriptableObject
@@ -16,5 +16,8 @@ public class PlayerSkinSo : ScriptableObject
     public void Clear()
     {
         Purchased = false;
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+#endif
     }
 }

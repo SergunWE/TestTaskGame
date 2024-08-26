@@ -1,6 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(fileName = "Level", menuName = "SOData/LevelsData")]
 public class LevelDataSo : LevelDataBaseSo
@@ -19,5 +20,8 @@ public class LevelDataSo : LevelDataBaseSo
         IsCompleted = false;
         CollectedCurrency = 0;
         BestRemainingTimeSeconds = 0;
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+#endif
     }
 }

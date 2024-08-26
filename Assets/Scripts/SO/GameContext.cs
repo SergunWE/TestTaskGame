@@ -1,8 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(fileName = "GameContext", menuName = "SOData/GameContext")]
 [Serializable]
@@ -67,6 +69,9 @@ public class GameContext : ScriptableObject
         {
             skin.Clear();
         }
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+#endif
     }
 
     private void OnDestroy()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6953fcb25f69d46a945cfdc809c09a, type: 3}
   m_Name: Skin 6
   m_EditorClassIdentifier: 
-  purchased: 0
+  Purchased: 0
   <MenuSprite>k__BackingField: {fileID: 21300000, guid: ea94387e9e277194bbee8d30814d3dc6, type: 3}
   <PlayerSprite>k__BackingField: {fileID: 21300000, guid: ea94387e9e277194bbee8d30814d3dc6, type: 3}
   <Name>k__BackingField: Heavenly Jackpot
