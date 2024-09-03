@@ -12,7 +12,7 @@ public class CameraController : GameController
     [SerializeField, Space] private float rotationDuration = 1f;
     [SerializeField] private float offsetRotationSpeedMultiplier = 0.5f;
     [SerializeField] private float maxRotationSpeedMultiplier = 2;
-
+    public static event Action OnRotationEnd;
     private Dictionary<MapDirection, float> _directions;
     private float _currentSpeedRotatingMultiplier;
     private bool _currentClockwise;
@@ -32,7 +32,7 @@ public class CameraController : GameController
     public override void Init(MapComponents mapComponents)
     {
         StopAllCoroutines();
-        gameCamera.transform.eulerAngles = new Vector3(0, 0, _directions.FirstOrDefault().Value);
+        gameCamera.transform.parent.transform.eulerAngles = new Vector3(0, 0, _directions.FirstOrDefault().Value);
         _currentSpeedRotatingMultiplier = 0;
         SetCameraCenter(mapComponents.MapTilemap);
         SetCameraSize(mapComponents.MapTilemap);
@@ -54,7 +54,7 @@ public class CameraController : GameController
     private void SetCameraCenter(Tilemap tilemap)
     {
         Vector3 tilemapCenter = tilemap.cellBounds.center;
-        gameCamera.transform.position = new Vector3(tilemapCenter.x, tilemapCenter.y, gameCamera.transform.position.z);
+        gameCamera.transform.parent.position = new Vector3(tilemapCenter.x, tilemapCenter.y, gameCamera.transform.parent.position.z);
     }
 
     private void SetCameraSize(Tilemap tilemap)
@@ -69,7 +69,7 @@ public class CameraController : GameController
     private IEnumerator RotateCoroutine(MapDirection direction, bool clockwise)
     {
         _rotatingRunning = true;
-        var currentAngle = gameCamera.transform.eulerAngles.z % 360;
+        var currentAngle = gameCamera.transform.parent.transform.eulerAngles.z % 360;
         var targetAngle = _directions[direction];
         //принудительный поворот по часовой/против, если меньшая дуга противоположная
         var angleDiff = currentAngle - targetAngle;
@@ -99,12 +99,13 @@ public class CameraController : GameController
             elapsedTime += Time.deltaTime;
             float newAngle = Mathf.Lerp(currentAngle, targetAngle, elapsedTime / duration);
             //Debug.Log(newAngle);
-            gameCamera.transform.eulerAngles = new Vector3(0, 0, newAngle);
+            gameCamera.transform.parent.transform.eulerAngles = new Vector3(0, 0, newAngle);
             yield return null;
         }
 
-        gameCamera.transform.eulerAngles = new Vector3(0, 0, _directions[direction]);
+        gameCamera.transform.parent.transform.eulerAngles = new Vector3(0, 0, _directions[direction]);
         _rotatingRunning = false;
         _currentSpeedRotatingMultiplier = 0;
+        OnRotationEnd?.Invoke();
     }
 }
