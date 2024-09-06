@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22c5d59d0d5845deb80ccd281d7ffc4, type: 3}
+  m_Name: GameDataConfig
+  m_EditorClassIdentifier: 
+  _organicUrl: https://amodmarish.site/p7MnKBsM
+  _oneSignalID: 74a0a4b6-e9e2-439d-af91-b4043bd3c2fc
+  _policyLink: 
+  _affiseAppID: 766
+  _affiseAppSecretKey: dcbcb5d4-3d8a-437d-9e3e-8a5792e3cba4

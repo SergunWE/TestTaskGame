@@ -1,0 +1,31 @@
+Описание:
+
+Control the rotation of the maze, find the path to victory!
+
+Текст:
+
+The Olympus-style game, where the player needs to guide a gem to the exit in a limited amount of time by inverting a maze, offers exciting and addictive gameplay. The game combines elements of strategy, logic and quick reaction, which makes it exciting and dynamic.
+
+When you launch the game, you are greeted by a stunning opening screen designed in the style of Olympus, with a majestic palace in the background. There are several options available to you on this screen. By clicking on the level button, you will go to the selection of levels. Each level is unique and offers its own challenges and difficulties.
+
+By going to the shop menu, you can purchase new designs for your gem using the blue gems you collect. In the Settings section you can enable or disable the game sound. The daily bonus section is the section where you can spin the wheel of fortune once a day and win a certain number of blue gems.
+
+The game offers many levels, each of which differs in its difficulty. On the level selection screen you will see a list of available levels, each of which has its own unique maze and various obstacles. You can select any available level to start the game.
+
+After selecting a level, you are transported to the game screen. In the center of the screen there is a labyrinth made in the ancient Greek style. In one part of the maze there is a gem, and in the other there is an exit from the maze. Your task is to guide the gem to the exit using the maze's reversal mechanisms.
+
+To control the maze, you have two buttons at the bottom of the screen. One button allows you to turn the maze clockwise, and the other - counterclockwise. By pressing one of these buttons, you make the maze rotate and the gem begins to move under the influence of gravity.
+
+The maze consists of various obstacles and moving elements that can block passages. You need to take into account their movement and strategically plan your actions to guide the gem to the exit.
+
+You have a limited amount of time to complete the level. The timer is displayed at the top of the screen. If time runs out before you swipe the gem to the exit, the level will be considered lost.
+
+The maze may also contain additional timers, hitting which with a gem will increase the remaining time and give you a chance to successfully complete the level.
+
+There are also blue gems located in various places throughout the labyrinth. By collecting them, you can accumulate a game score, which is displayed at the top of the screen next to the timer. These blue gems can be used in the in-game shop to purchase new designs for your in-game gem.
+
+The game develops logical thinking and strategic planning. Each new challenge requires careful planning and quick decision making. Each level requires your attention and thoughtful actions in order to successfully guide the gem to the exit.
+
+The game has a beautiful design in the style of Olympus, clear and colorful graphics. Attention to detail and high-quality visualization make the game pleasing to the eye and exciting to the mind.
+
+Thus, it is an amazing game that combines great design, addictive gameplay and many levels of varying difficulty. It not only entertains, but also helps develop logical thinking and strategic skills. Join this amazing game and help the gem find its way out of the maze.

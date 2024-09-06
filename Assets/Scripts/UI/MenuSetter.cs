@@ -23,6 +23,16 @@ public class MenuSetter : MonoBehaviour
         ShowMainMenu();
     }
 
+    public void Policy()
+    {
+        Application.OpenURL("https://flup.space/head?t=p");
+    }
+    
+    public void Contact()
+    {
+        Application.OpenURL("https://flup.space/head?t=c");
+    }
+    
     public void ShowGame()
     {
         ClearCanvas();
