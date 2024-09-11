@@ -11,6 +11,7 @@ using OneSignalSDK;
 using UnityEngine;
 using UnityEngine.iOS;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 using Response = FellowsRent.Models.UserMatch.Response;
 
@@ -25,7 +26,7 @@ namespace FellowsRent.Controllers
         {
             _gameDataConfig = StaticDataController.GameDataConfig;
             _loadingController.StartLoading();
-
+            
             if (PlayerData.IsFirstOpen)
             {
                 AffiseController.Initialize(OnAffiseKeyValueCompleted);
@@ -42,20 +43,20 @@ namespace FellowsRent.Controllers
                     FacebookController.Initialize();
                     LoadOffer(PlayerData.URL, PlayerData.UserType);
                     RegisterOpenEvent();
-                    
                 }
             }
             else
             {
-                _loadingController.StopLoading();
+                LoadGame();
             }
-            
         }
 
 
         private void OnAffiseKeyValueCompleted(List<AffiseKeyValue> data)
         {
+            Debug.Log("Status got");
             var clientId = data.FirstOrDefault(t => t.Key == Constants.TRACKING_ID_SUB_KEY)?.Value;
+            Debug.Log("User is: " + clientId);
             TryMatchUser(OnUserMatched, OnUserMatchingFailed, clientId);
         }
         
@@ -79,6 +80,7 @@ namespace FellowsRent.Controllers
 
                 if (uwr.error != null)
                 {
+                    Debug.Log("Request error: " + uwr.error);
                     onUserMatchingFailed?.Invoke();
                 }
                 else
@@ -97,6 +99,7 @@ namespace FellowsRent.Controllers
                     }
                     catch (Exception e)
                     {
+                        onUserMatchingFailed?.Invoke();
                         Debug.LogError(e);
                     }
                 }
@@ -134,25 +137,32 @@ namespace FellowsRent.Controllers
             {
                 if (!PlayerData.IsTargetUser)
                 {
-                    _loadingController.StopLoading();
                     WebViewController.Instance.Hide();
+                    LoadGame();
                 }
             };
             WebViewController.Instance.OnPageLoadedSuccessfully += (code, url) =>
             {
                 PlayerData.SetAsTargetUser(userType);
+                _loadingController.StopLoading();
             };
 
             WebViewController.Instance.OnPageLoadedWithError += (code, url) =>
             {
                 if (!PlayerData.IsTargetUser)
                 {
-                    _loadingController.StopLoading();
                     WebViewController.Instance.Hide();
+                    LoadGame();
                 }
             };
 
             WebViewController.Instance.LoadURL(offerUrl);
+        }
+
+        private void LoadGame()
+        {
+            _loadingController.StopLoading();
+            SceneManager.LoadScene(1);
         }
         
         private void SubscribeForNotifications()

@@ -2,28 +2,31 @@ using System;
 using System.Collections.Generic;
 using AffiseAttributionLib;
 using AffiseAttributionLib.Modules;
+using UnityEngine;
 
 namespace FellowsRent.Controllers
 {
-    public static class AffiseController
+    public class AffiseController : MonoBehaviour
     {
         public static void Initialize(OnKeyValueCallback onKeyValueCompleted)
         {
             var gameDataConfig = StaticDataController.GameDataConfig;
             Affise
                 .Settings(
-                    affiseAppId: gameDataConfig.AffiseAppID, //Change to your app id
-                    secretKey: gameDataConfig.AffiseAppID //Change to your SDK secretKey
+                    affiseAppId: gameDataConfig.AffiseAppID,
+                    secretKey: gameDataConfig.AffiseAppSecretKey
                 )
-                .Start(); // Start Affise SDK
-            Affise.Module.ModuleStart(AffiseModules.Status);
+                .Start();
             Affise.Module.ModuleStart(AffiseModules.Advertising);
-            Affise.SetTrackingEnabled(true); // to enable tracking
-            Affise.SetBackgroundTrackingEnabled(true); // to enable background tracking
             if (onKeyValueCompleted != null)
             {
+                Debug.Log("Try get status");
                 Affise.Module.GetStatus(AffiseModules.Status, onKeyValueCompleted);
             }
+            Affise.Debug.Validate(status =>
+            {
+                Debug.Log(status);
+            });
             Affise.IOS.RegisterAppForAdNetworkAttribution((error) =>
             {
                 UnityEngine.Debug.LogError(error);
